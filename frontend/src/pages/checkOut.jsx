@@ -1,9 +1,9 @@
 import React from "react";
 import Head from "next/head";
 
-import { Navbar } from "../components/Navbar";
-import { Footer } from "../components/Footer";
-import { ProductPage } from "../components/ProductPage";
+// import { Navbar } from "../components/Navbar";
+// import { Footer } from "../components/Footer";
+import { CheckOut } from "../components/CheckOut";
 
 export default function Home() {
   return (
@@ -15,11 +15,11 @@ export default function Home() {
           content="We strive to provide the best quality clothing to our clients."
         />
       </Head>
-      <Navbar />
+      {/* <Navbar /> */}
       <main>
-        <ProductPage />
+        <CheckOut />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
