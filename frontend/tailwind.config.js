@@ -1,18 +1,38 @@
-/** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./src/pages/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    // colors: {
+    //   "pastel-blue": "#A7D2CB",
+    //   "pastel-grey": "#DFEAF2",
+    //   "pastel-yellow": "#F2D388",
+    //   "pastel-pink": "#C98474",
+    //   "pastel-burgundy": "#874C62",
+    //   "pastel-dark-grey": "#5E6179",
+    //   "pastel-black": "#3B3B3B",
+    //   "pastel-bg": "#FBF8F6",
+    // },
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        cyan: colors.cyan,
+      },
+      fontFamily: {
+        sans: ["Inter", ...defaultTheme.fontFamily.sans],
       },
     },
   },
-  plugins: [],
-}
+  variants: {
+    extend: {},
+  },
+  // eslint-disable-next-line global-require
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/aspect-ratio"),
+  ],
+};
