@@ -3,6 +3,11 @@ import Head from "next/head";
 
 import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
+import { ProductCard } from "../components/ProductCard";
+import { Carousel } from "../components/Carousel";
+import { Featured } from "../components/Featured";
+import { Blog } from "../components/Blog";
+import { Newsletter } from "../components/Newsletter";
 import { Footer } from "../components/Footer";
 
 export default function Home() {
@@ -18,6 +23,11 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <Carousel />
+        <ProductCard />
+        <Featured />
+        <Blog />
+        <Newsletter />
       </main>
       <Footer />
     </div>

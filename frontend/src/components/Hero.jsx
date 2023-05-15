@@ -1,8 +1,4 @@
-import { useState } from "react";
-
 export function Hero() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   return (
     <div className="bg-white">
       <main>
