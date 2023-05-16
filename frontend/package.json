@@ -14,17 +14,12 @@
     "test-all": "yarn lint && yarn type-check && yarn test"
   },
   "dependencies": {
-    "@auth0/auth0-react": "^2.0.1",
-    "@auth0/auth0-spa-js": "^2.0.4",
-    "@auth0/nextjs-auth0": "^1.3.1",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@headlessui/react": "^1.7.3",
     "@heroicons/react": "^2.0.17",
-    "@stripe/react-stripe-js": "^2.1.0",
-    "@stripe/stripe-js": "^1.52.1",
     "@types/axios": "^0.14.0",
     "axios": "^1.3.5",
     "base-64": "^1.0.0",
@@ -33,8 +28,8 @@
     "lodash": "^4.17.21",
     "next": "^12.1.1",
     "nextjs-cors": "^2.1.2",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "sass": "^1.49.9"
   },
   "devDependencies": {
