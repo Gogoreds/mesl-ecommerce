@@ -1,154 +1,102 @@
-import React from "react";
+import { useEffect, useState } from "react";
 
-export function Carousel() {
+const Carousel = () => {
+  const slides = [
+    {
+      src: "https://images.unsplash.com/photo-1603123853880-a92fafb7809f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80",
+      caption: "Slide 1",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1454793781512-0fafb38dce83?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
+      caption: "Slide 2",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1512400930990-e0bc0bd809df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      caption: "Slide 3",
+    },
+    {
+      src: "https://plus.unsplash.com/premium_photo-1673356302169-574db56b52cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      caption: "Slide 4",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1618333258404-f509733839c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1329&q=80",
+      caption: "Slide 5",
+    },
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prevSlide) =>
+        prevSlide === slides.length - 1 ? 0 : prevSlide + 1
+      );
+    }, 7000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
+  const goToPrevSlide = () => {
+    setCurrentSlide((prevSlide) =>
+      prevSlide === 0 ? slides.length - 1 : prevSlide - 1
+    );
+  };
+
+  const goToNextSlide = () => {
+    setCurrentSlide((prevSlide) =>
+      prevSlide === slides.length - 1 ? 0 : prevSlide + 1
+    );
+  };
+
   return (
-    <div
-      id="default-carousel"
-      class="relative w-full"
-      data-carousel="slide"
-    >
-      <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-        <div
-          class="hidden duration-700 ease-in-out"
-          data-carousel-item
-        >
-          <img
-            src="/docs/images/carousel/carousel-1.svg"
-            class="absolute left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
-            alt="..."
-          />
-        </div>
-
-        <div
-          class="hidden duration-700 ease-in-out"
-          data-carousel-item
-        >
-          <img
-            src="/docs/images/carousel/carousel-2.svg"
-            class="absolute left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
-            alt="..."
-          />
-        </div>
-
-        <div
-          class="hidden duration-700 ease-in-out"
-          data-carousel-item
-        >
-          <img
-            src="/docs/images/carousel/carousel-3.svg"
-            class="absolute left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
-            alt="..."
-          />
-        </div>
-
-        <div
-          class="hidden duration-700 ease-in-out"
-          data-carousel-item
-        >
-          <img
-            src="/docs/images/carousel/carousel-4.svg"
-            class="absolute left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
-            alt="..."
-          />
-        </div>
-
-        <div
-          class="hidden duration-700 ease-in-out"
-          data-carousel-item
-        >
-          <img
-            src="/docs/images/carousel/carousel-5.svg"
-            class="absolute left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
-            alt="..."
-          />
-        </div>
-      </div>
-
-      <div class="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 space-x-3">
-        <button
-          type="button"
-          class="h-3 w-3 rounded-full"
-          aria-current="true"
-          aria-label="Slide 1"
-          data-carousel-slide-to="0"
-        ></button>
-        <button
-          type="button"
-          class="h-3 w-3 rounded-full"
-          aria-current="false"
-          aria-label="Slide 2"
-          data-carousel-slide-to="1"
-        ></button>
-        <button
-          type="button"
-          class="h-3 w-3 rounded-full"
-          aria-current="false"
-          aria-label="Slide 3"
-          data-carousel-slide-to="2"
-        ></button>
-        <button
-          type="button"
-          class="h-3 w-3 rounded-full"
-          aria-current="false"
-          aria-label="Slide 4"
-          data-carousel-slide-to="3"
-        ></button>
-        <button
-          type="button"
-          class="h-3 w-3 rounded-full"
-          aria-current="false"
-          aria-label="Slide 5"
-          data-carousel-slide-to="4"
-        ></button>
-      </div>
-      <button
-        type="button"
-        class="group absolute left-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
-        data-carousel-prev
-      >
-        <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:outline-none group-focus:ring-4 group-focus:ring-white dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70 sm:h-10 sm:w-10">
-          <svg
-            aria-hidden="true"
-            class="h-5 w-5 text-white dark:text-gray-800 sm:h-6 sm:w-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+    <div className="relative">
+      <div className="flex h-96 items-center justify-center bg-gray-200">
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute flex h-full w-full items-center justify-center transition-opacity duration-500 ${
+              index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 19l-7-7 7-7"
-            ></path>
-          </svg>
-          <span class="sr-only">Previous</span>
-        </span>
-      </button>
-      <button
-        type="button"
-        class="group absolute right-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
-        data-carousel-next
-      >
-        <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:outline-none group-focus:ring-4 group-focus:ring-white dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70 sm:h-10 sm:w-10">
-          <svg
-            aria-hidden="true"
-            class="h-5 w-5 text-white dark:text-gray-800 sm:h-6 sm:w-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+            <img
+              src={slide.src}
+              alt={slide.caption}
+              className="h-96"
+            />
+          </div>
+        ))}
+      </div>
+      <div className="mt-4 flex justify-center">
+        <button
+          className="rounded-l bg-gray-500 px-4 py-2 font-bold text-white hover:bg-gray-700"
+          onClick={goToPrevSlide}
+        >
+          Previous
+        </button>
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            className={`bg-gray-500 px-4 py-2 font-bold text-white hover:bg-gray-700 ${
+              index === currentSlide ? "bg-gray-900" : ""
+            }`}
+            onClick={() => goToSlide(index)}
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"
-            ></path>
-          </svg>
-          <span class="sr-only">Next</span>
-        </span>
-      </button>
+            {index + 1}
+          </button>
+        ))}
+        <button
+          className="rounded-r bg-gray-500 px-4 py-2 font-bold text-white hover:bg-gray-700"
+          onClick={goToNextSlide}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
-}
+};
+
+export default Carousel;
