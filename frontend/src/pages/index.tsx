@@ -20,7 +20,7 @@ export default function Home() {
           content="We strive to provide the best quality clothing to our clients."
         />
       </Head>
-      <Navbar />
+    
       <main>
         <Hero />
         <Carousel />
@@ -29,7 +29,7 @@ export default function Home() {
         <Blog />
         <Newsletter />
       </main>
-      <Footer />
+      
     </div>
   );
 }
