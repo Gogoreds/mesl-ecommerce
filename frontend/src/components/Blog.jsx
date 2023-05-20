@@ -1,53 +1,51 @@
 const posts = [
   {
     id: 1,
-    title: "Boost your conversion rate",
-    href: "#",
+    title: "8 Unique Ways Of Wearing A Hoodie",
+    href: "https://blog.thejacketmaker.com/wearing-a-hoodie/",
     description:
-      "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
+      "Think about a clothing item that is an absolute balance between style and comfort, and the hoodie pops up in your mind for sure. A hoodie, or a hooded sweatshirt, is a garment that is mostly made with a comfortable, thick fabric. The attached hood serves the purpose of covering the neck and head, keeping the wearer protected from cold and rain.",
     imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-    datetime: "2020-03-16",
+      "https://blog.thejacketmaker.com/wp-content/uploads/2021/08/m8-930x620.jpg.webp",
+    date: "August 13, 2021",
+    datetime: "2021-08-13",
     author: {
-      name: "Michael Foster",
+      name: "The Jacket Maker",
       imageUrl:
-        "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+        "https://blog.thejacketmaker.com/wp-content/uploads/tJM-BLOG-LOGO.png",
     },
   },
   {
     id: 2,
-    title: "Boost your conversion rate",
-    href: "#",
+    title: "The Essential Guide to Hoodie Care",
+    href: "https://wegotteez.com/blogs/t-shirts-hoodies-fashion/the-essential-guide-to-hoodie-care",
     description:
-      "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
+      "If your hoodie has graphics or designs on it, it's especially important to take good care of it to keep the graphics looking good. Here are some tips for properly caring for your hoodie:",
     imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-    datetime: "2020-03-16",
+      "https://wegotteez.com/cdn/shop/articles/care_for_your_hoodie_400x.jpg?v=1672688176",
+    date: "January 02, 2023",
+    datetime: "2023-01-02",
     author: {
-      name: "Michael Foster",
+      name: "wegotteez.com",
       imageUrl:
-        "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+        "https://wegotteez.com/cdn/shop/files/20200117_WGT_Long_logo_410x.png?v=1613698716",
     },
   },
   {
     id: 3,
-    title: "Boost your conversion rate",
-    href: "#",
+    title: "5 Things We Love About Hoodies",
+    href: "https://blog.stagwears.com/5-things-we-love-about-hoodies/",
     description:
-      "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
+      "All of you have at least one hoodie in your wardrobe, right? C’mon y’all, don’t tell me otherwise! Because it’s a timeless, classic must-have wardrobe staple. People of all ages, fashion interests, and clothing preferences wear hoodies the way they want and exude swag in their own way. Kudos to the humble hoodie for being so versatile!",
     imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-    datetime: "2020-03-16",
+      "https://blog.stagwears.com/wp-content/uploads/2021/10/Hoodie-Zip-Men-2-600x762.webp",
+    date: "December 15, 2021",
+    datetime: "2021-12-15",
     author: {
-      name: "Michael Foster",
-      imageUrl:
-        "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      name: "STAG WEARS",
+      imageUrl: "https://stagwears.com/frontend/images/logo_stagwears.svg",
     },
   },
-  // More posts...
 ];
 
 export function Blog() {
@@ -59,7 +57,7 @@ export function Blog() {
             From the blog
           </h2>
           <p className="mt-2 text-lg leading-8 text-gray-600">
-            Learn how to grow your business with our expert advice.
+            Read more articles about hoodies...
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
