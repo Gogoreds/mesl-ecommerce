@@ -8,11 +8,13 @@
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
   })
     export const getStaticPaths = async ()=>{
-      const respone = await client.getEntries({
+      const res = await client.getEntries({
         content_type: 'product'
       })
-      const paths = respone.items.map(item =>{
+      const paths = res.items.map(item =>{
+        return {
         params: {slug: item.fields.slug}
+        }
       })
       return {
         paths,
@@ -21,7 +23,7 @@
     }
     export async function getStaticProps({params}){
          try { 
-          const response = await client.getEntries({
+          const {items} = await client.getEntries({
           content_type: 'product',
           'fields.slug': params.slug
         })
@@ -45,6 +47,7 @@
   const Details = ({product}) => {
     const {title, slug, image, price, description}= product.fields 
     console.log(product)
+
     return (
       <div className="">
         <Head>

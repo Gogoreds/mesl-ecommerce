@@ -1,7 +1,7 @@
 import Image from "next/image"
 
  const ProductCard = ({product}) => {
-  const {title, slug, image, price}= product.fields 
+  const {title, slug, image, price, description, category}= product.fields 
 
   return (
     <div className="bg-white">
@@ -21,7 +21,8 @@ import Image from "next/image"
                   {title}
                 </a>
               </h3>
-              <p className="mt-1 text-sm text-gray-500">{price}Kr</p>
+              <h4 className="mt-1 text-sm text-gray-500">Category: {category}</h4>
+              <p className="mt-1 text-sm text-gray-500">{price} Kr</p>
             </div>
         
         </div>

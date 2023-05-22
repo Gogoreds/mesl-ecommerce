@@ -8,7 +8,7 @@ export async function getStaticProps(){
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
   })
-  const res= await client.getEntries({content_type: 'product'})
+  const res = await client.getEntries({content_type: 'product'})
   return {
     props: {
       products: res.items
