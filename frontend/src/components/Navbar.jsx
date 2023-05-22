@@ -96,6 +96,12 @@ export function Navbar() {
                     aria-hidden="true"
                   />
                 </button>
+                <Link  href="/login">
+                  <a
+			class="inline-block mt-2 bg-green-600 hover:bg-green-700 focus:bg-green-800 px-6 py-2 rounded text-white shadow-lg"
+		>
+			Login </a></Link>
+		
               </div>
             </div>
           </div>
