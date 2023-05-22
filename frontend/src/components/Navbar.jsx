@@ -7,7 +7,7 @@ import {
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import ProductList from '../pages/productlist'
+import ProductList from '../pages/products/index'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -61,7 +61,7 @@ export function Navbar() {
                   >
                     Home
                   </a>
-                  <Link  href="/productlist">
+                  <Link  href="/products">
                   <a
                     className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
                   >
