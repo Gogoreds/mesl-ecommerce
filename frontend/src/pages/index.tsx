@@ -3,7 +3,7 @@ import React from "react";
 
 import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
-import { ProductCard } from "../components/ProductCard";
+import { ProductTrio } from "../components/ProductTrio";
 import Carousel from "../components/Carousel";
 import { Featured } from "../components/Featured";
 import { Blog } from "../components/Blog";
@@ -17,7 +17,7 @@ export default function Home() {
       <main>
         <Hero />
         <Carousel />
-        <ProductCard />
+        <ProductTrio />
         <Featured />
         <Blog />
         <Newsletter />
