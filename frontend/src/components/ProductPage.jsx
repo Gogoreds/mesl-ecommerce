@@ -14,6 +14,8 @@ function classNames(...classes) {
 export function ProductPage() {
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
+  
+  const {title, slug, image, price, description, category}= product.fields 
 
   return (
     <div className="bg-white">

@@ -1,7 +1,8 @@
   import {createClient} from 'contentful'
   import React from "react";
   import Head from "next/head";
-  import { ProductPage } from "../../components/ProductPage";
+  import Image from "next/image"
+ // import { ProductPage } from "../../components/ProductPage";
 
   const client = createClient({
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
@@ -45,7 +46,8 @@
   
   
   const Details = ({product}) => {
-    const {title, slug, image, price, description}= product.fields 
+    const {title, image, price, description, category}= product.fields 
+
     console.log(product)
 
     return (
@@ -59,7 +61,28 @@
         </Head>
     
         <main>
-          <ProductPage key={product.sys.id} product={product} />
+          {/* <ProductPage key={product.sys.id} product={product} /> */}
+          <div className="bg-white">
+      <div className="mx-auto max-w-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+            
+            <div key={product.id} className="group relative">
+              <div className="h-96 w-full overflow-hidden rounded-lg sm:aspect-h-3 sm:aspect-w-2 group-hover:opacity-75 sm:h-auto">
+                <Image
+                  src={'https:'+ image[0].fields.file.url}
+                  layout="fill"
+                  className="h-full w-full object-cover object-center"
+                />
+              </div>
+              <h3 className="mt-4 text-base font-semibold text-gray-900">
+                  <span className="absolute inset-0" />
+                  {title}
+              </h3>
+              <h4 className="mt-1 text-sm text-gray-500">Category: {category}</h4>
+              <p className="mt-1 text-sm text-gray-500">{price} Kr</p>
+            </div>
+        
+        </div>
+        </div>
         </main>
    
       </div>
