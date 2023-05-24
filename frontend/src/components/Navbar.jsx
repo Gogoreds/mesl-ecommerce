@@ -44,12 +44,12 @@ export function Navbar() {
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="block h-32 w-auto lg:hidden"
-                    src="https://i.ibb.co/tZ6ckgY/M-E-S-L.png"
+                    src="https://i.ibb.co/L0MCr6v/M-E-S-L-1.png"
                     alt="MESL"
                   />
                   <img
                     className="hidden h-32 w-auto lg:block"
-                    src="https://i.ibb.co/tZ6ckgY/M-E-S-L.png"
+                    src="https://i.ibb.co/L0MCr6v/M-E-S-L-1.png"
                     alt="MESL"
                   />
                 </div>
