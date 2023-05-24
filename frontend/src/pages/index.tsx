@@ -1,25 +1,33 @@
 import React from "react";
-import Head from "next/head";
-
-import { Navbar } from "../components/Navbar";
+import Head from 'next/head';
 import { Hero } from "../components/Hero";
-import { Footer } from "../components/Footer";
+import { ProductTrio } from "../components/ProductTrio";
+import Carousel from "../components/Carousel";
+import { Featured } from "../components/Featured";
+import { Blog } from "../components/Blog";
+import { Newsletter } from "../components/Newsletter";
+
 
 export default function Home() {
   return (
     <div className="">
-      <Head>
+        <Head>
         <title>MESL - Only Clothing Store You'll Ever Need!</title>
         <meta
           name="description"
           content="We strive to provide the best quality clothing to our clients."
         />
       </Head>
-      <Navbar />
+  
       <main>
         <Hero />
+        <Carousel />
+        <ProductTrio />
+        <Featured />
+        <Blog />
+        <Newsletter />
       </main>
-      <Footer />
+
     </div>
   );
 }
