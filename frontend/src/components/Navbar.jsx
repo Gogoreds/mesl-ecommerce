@@ -7,7 +7,7 @@ import {
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import ProductList from '../pages/products/index'
+import ProductList from "../pages/products/index";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -61,12 +61,11 @@ export function Navbar() {
                   >
                     Home
                   </a>
-                  <Link  href="/products">
-                  <a
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                  >
-                    Catalogue
-                  </a></Link>
+                  <Link href="/products">
+                    <a className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
+                      Catalogue
+                    </a>
+                  </Link>
                   <a
                     href="#"
                     className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
@@ -96,12 +95,6 @@ export function Navbar() {
                     aria-hidden="true"
                   />
                 </button>
-                <Link  href="/login">
-                  <a
-			         class="inline-block mt-2 bg-green-600 hover:bg-green-700 focus:bg-green-800 px-6 py-2 rounded-full text-white shadow-lg"
-		            >
-			          Login </a></Link>
-		
               </div>
             </div>
           </div>
