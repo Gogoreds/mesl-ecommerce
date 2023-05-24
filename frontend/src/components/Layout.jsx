@@ -12,6 +12,7 @@ const Layout = ({children}) => {
           name="description"
           content="We strive to provide the best quality clothing to our clients."
         />
+         <script src="https://www.google.com/recaptcha/api.js" async defer></script> with <script src="https://www.recaptcha.net/recaptcha/api.js" async defer></script>
       </Head>
     <Navbar/>
   
