@@ -1,6 +1,7 @@
 import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
 import Head from "next/head";
+import CookieBanner from './CookieBanner';
 
 const Layout = ({children}) => {
   return ( 
@@ -13,7 +14,9 @@ const Layout = ({children}) => {
         />
       </Head>
     <Navbar/>
+  
     {children}
+    <CookieBanner />
     <Footer />
   </div>
    );
