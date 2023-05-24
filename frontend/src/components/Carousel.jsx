@@ -53,8 +53,8 @@ const Carousel = () => {
   };
 
   return (
-    <div className="relative">
-      <div className="flex h-96 items-center justify-center bg-gray-200">
+    <div className="relative border-slate-100 bg-white">
+      <div className="flex h-96 items-center justify-center bg-gradient-to-r from-gray-50 via-slate-300 to-gray-50">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -70,7 +70,7 @@ const Carousel = () => {
           </div>
         ))}
       </div>
-      <div className="mt-4 flex justify-center">
+      <div className="bg mt-4 flex justify-center bg-white">
         <button
           className="rounded-l bg-gray-500 px-4 py-2 font-bold text-white hover:bg-gray-700"
           onClick={goToPrevSlide}
