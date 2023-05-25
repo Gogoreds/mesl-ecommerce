@@ -1,12 +1,15 @@
-import Image from "next/image"
+import Image from "next/image";
 
+const Category = ({ product }) => {
+  if (!product || !product.fields) {
+    return null; // Handle the case when product or product.fields is undefined
+  }
 
+  const { title, slug, image, price, category } = product.fields;
 
-export function Category({product}) {
-  
-  const {title, slug, image, price, description, category} = product.fields;
-
-  
+  const imageUrl = Array.isArray(image)
+    ? "https:" + image[0].fields.file.url // If image is an array, use the first image URL
+    : "https:" + image.fields.file.url; // If image is an object, use the image URL directly
 
   return (
     <div className="bg-gray-50">
@@ -25,12 +28,12 @@ export function Category({product}) {
         </div>
 
         <div className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-6 lg:gap-8">
-          <div  key={product.id} className="group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-1 sm:row-span-2">
-          <Image
-                  src={'https:'+ image.fields.file.url}
-                  layout="fill"
-                  className="h-full w-full object-cover object-center"
-                />
+          <div className="group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-1 sm:row-span-2">
+            <Image
+              src={imageUrl}
+              layout="fill"
+              className="h-full w-full object-cover object-center"
+            />
             <div
               aria-hidden="true"
               className="bg-gradient-to-b from-transparent to-black opacity-50"
@@ -50,11 +53,11 @@ export function Category({product}) {
             </div>
           </div>
           <div className="group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-none sm:relative sm:h-full">
-          <Image
-                  src={'https:'+ image.fields.file.url}
-                  layout="fill"
-                  className="h-full w-full object-cover object-center"
-                />
+            <Image
+              src={imageUrl}
+              layout="fill"
+              className="h-full w-full object-cover object-center"
+            />
             <div
               aria-hidden="true"
               className="bg-gradient-to-b from-transparent to-black opacity-50 sm:absolute sm:inset-0"
@@ -74,11 +77,11 @@ export function Category({product}) {
             </div>
           </div>
           <div className="group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-none sm:relative sm:h-full">
-          <Image
-                  src={'https:'+ image.fields.file.url}
-                  layout="fill"
-                  className="h-full w-full object-cover object-center"
-                />
+            <Image
+              src={imageUrl}
+              layout="fill"
+              className="h-full w-full object-cover object-center"
+            />
             <div
               aria-hidden="true"
               className="bg-gradient-to-b from-transparent to-black opacity-50 sm:absolute sm:inset-0"
@@ -88,7 +91,7 @@ export function Category({product}) {
                 <h3 className="font-semibold text-white">
                   <a href="#">
                     <span className="absolute inset-0" />
-                    Workspace
+                    {category}
                   </a>
                 </h3>
                 <p aria-hidden="true" className="mt-1 text-sm text-white">
@@ -111,4 +114,5 @@ export function Category({product}) {
       </div>
     </div>
   );
-}
+};
+export default Category;

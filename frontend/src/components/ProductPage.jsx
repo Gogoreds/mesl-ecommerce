@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Image from "next/image"
+import Image from "next/image";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
 import {
@@ -7,18 +7,15 @@ import {
   GlobeAmericasIcon,
 } from "@heroicons/react/24/outline";
 
-
-
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export function ProductPage({product}) {
+export function ProductPage({ product }) {
   const [selectedColor, setSelectedColor] = useState(product.colors);
   const [selectedSize, setSelectedSize] = useState(product.sizes);
-  
-  const {title, slug, image, price, description, category}= product.fields 
+
+  const { title, slug, image, price, description, category } = product.fields;
 
   return (
     <div className="bg-white">
@@ -68,9 +65,7 @@ export function ProductPage({product}) {
                 <h1 className="text-xl font-medium text-gray-900">
                   {product.name}
                 </h1>
-                <p className="text-xl font-medium text-gray-900">
-                  {price}
-                </p>
+                <p className="text-xl font-medium text-gray-900">{price}</p>
               </div>
               {/* Reviews */}
               <div className="mt-4">
