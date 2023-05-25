@@ -38,11 +38,7 @@ export function CheckOut() {
           <div className="mx-auto flex max-w-lg">
             <a href="#">
               <span className="sr-only">Your Company</span>
-              <img
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
-                className="h-8 w-auto"
-              />
+             
             </a>
           </div>
         </div>
@@ -281,11 +277,7 @@ export function CheckOut() {
             <div className="hidden pb-16 pt-10 lg:flex">
               <a href="#">
                 <span className="sr-only">Your Company</span>
-                <img
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                  alt=""
-                  className="h-8 w-auto"
-                />
+              
               </a>
             </div>
 
