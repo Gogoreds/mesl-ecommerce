@@ -1,7 +1,7 @@
 import Image from "next/image"
 
  const ProductCard = ({product}) => {
-  const {title, slug, image, price, description, category}= product.fields 
+  const {title, slug, image, price, category}= product.fields 
 
   return (
     <div className="bg-white">
