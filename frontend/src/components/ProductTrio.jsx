@@ -19,7 +19,7 @@ const ProductTrio = ({ products }) => {
         </div>
 
         <div className="mt-6 grid grid-cols-1 gap-y-10 sm:grid-cols-3 sm:gap-x-6 sm:gap-y-0 lg:gap-x-8">
-          {products.map((product) => (
+          {products.slice(0, 3).map((product) => (
             <ProductCard key={product.sys.id} product={product} />
           ))}
         </div>
