@@ -5,7 +5,7 @@ const Contact = () => {
   const [captcha, setCaptcha]=useState(false)
 
   return ( 
-    <div className=" py-16 px-4 4xl:pr-[23%] w-full bg-white ">
+    <div className="  px-4 4xl:pr-[23%] w-full bg-white ">
     <div className="max-w-[1240px] mx-auto grid md:grid-cols-2 ">
       <div className="flex flex-col justify-center pl-8 pt-4 m-8">
         <h1 className="md:text-4xl sm:text-3xl text-2xl font-bold py-2">
@@ -72,8 +72,8 @@ const Contact = () => {
             ) : ( */}
               <button
                 type="submit"
-                className="bg-[#343B63] text-[#FFFFFF] rounded-md hover:bg-blue-600 font-medium my-14 mx-auto ml-[23%] px-6 py-3  md:ml-[35%] "
-                >Connect with us
+                className="bg-[#343B63] text-[#FFFFFF] rounded-md hover:bg-blue-600 font-medium my-14 mx-auto ml-[19%] px-6 py-3  md:ml-[35%] "
+                >Contact us
                 </button>
             {/* )} */}
           </form>

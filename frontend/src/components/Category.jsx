@@ -1,4 +1,16 @@
-export function Featured() {
+import Image from "next/image";
+
+const Category = ({ product }) => {
+  if (!product || !product.fields) {
+    return null; // Handle the case when product or product.fields is undefined
+  }
+
+  const { title, slug, image, price, category } = product.fields;
+
+  const imageUrl = Array.isArray(image)
+    ? "https:" + image[0].fields.file.url // If image is an array, use the first image URL
+    : "https:" + image.fields.file.url; // If image is an object, use the image URL directly
+
   return (
     <div className="bg-gray-50">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
@@ -17,10 +29,10 @@ export function Featured() {
 
         <div className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-6 lg:gap-8">
           <div className="group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-1 sm:row-span-2">
-            <img
-              src="https://tailwindui.com/img/ecommerce-images/home-page-03-featured-category.jpg"
-              alt="Two models wearing women's black cotton crewneck tee and off-white cotton crewneck tee."
-              className="object-cover object-center group-hover:opacity-75"
+            <Image
+              src={imageUrl}
+              layout="fill"
+              className="h-full w-full object-cover object-center"
             />
             <div
               aria-hidden="true"
@@ -41,10 +53,10 @@ export function Featured() {
             </div>
           </div>
           <div className="group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-none sm:relative sm:h-full">
-            <img
-              src="https://tailwindui.com/img/ecommerce-images/home-page-03-category-01.jpg"
-              alt="Wooden shelf with gray and olive drab green baseball caps, next to wooden clothes hanger with sweaters."
-              className="object-cover object-center group-hover:opacity-75 sm:absolute sm:inset-0 sm:h-full sm:w-full"
+            <Image
+              src={imageUrl}
+              layout="fill"
+              className="h-full w-full object-cover object-center"
             />
             <div
               aria-hidden="true"
@@ -65,10 +77,10 @@ export function Featured() {
             </div>
           </div>
           <div className="group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-none sm:relative sm:h-full">
-            <img
-              src="https://tailwindui.com/img/ecommerce-images/home-page-03-category-02.jpg"
-              alt="Walnut desk organizer set with white modular trays, next to porcelain mug on wooden desk."
-              className="object-cover object-center group-hover:opacity-75 sm:absolute sm:inset-0 sm:h-full sm:w-full"
+            <Image
+              src={imageUrl}
+              layout="fill"
+              className="h-full w-full object-cover object-center"
             />
             <div
               aria-hidden="true"
@@ -79,7 +91,7 @@ export function Featured() {
                 <h3 className="font-semibold text-white">
                   <a href="#">
                     <span className="absolute inset-0" />
-                    Workspace
+                    {category}
                   </a>
                 </h3>
                 <p aria-hidden="true" className="mt-1 text-sm text-white">
@@ -102,4 +114,5 @@ export function Featured() {
       </div>
     </div>
   );
-}
+};
+export default Category;

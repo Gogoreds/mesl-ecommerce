@@ -48,7 +48,7 @@ export function Navbar() {
                     alt="MESL"
                   />
                   <img
-                    className="hidden h-32 w-auto lg:block"
+                    className="hidden h-32  w-auto lg:block"
                     src="https://i.ibb.co/L0MCr6v/M-E-S-L-1.png"
                     alt="MESL"
                   />
@@ -85,16 +85,12 @@ export function Navbar() {
                     aria-hidden="true"
                   />
                 </button>
-                <button
-                  type="button"
-                  className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                >
-                  <span className="sr-only">Shopping Cart</span>
-                  <ShoppingCartIcon
-                    className="h-6 w-6"
-                    aria-hidden="true"
-                  />
-                </button>
+                <Link href="/checkOut">
+              <a className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+           <span className="sr-only">Shopping Cart</span>
+          <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
+          </a>
+        </Link>
               </div>
             </div>
           </div>

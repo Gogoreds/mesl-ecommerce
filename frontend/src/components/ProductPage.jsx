@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "next/image";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
 import {
@@ -6,16 +7,15 @@ import {
   GlobeAmericasIcon,
 } from "@heroicons/react/24/outline";
 
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export function ProductPage() {
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
-  const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
-  
-  const {title, slug, image, price, description, category}= product.fields 
+export function ProductPage({ product }) {
+  const [selectedColor, setSelectedColor] = useState(product.colors);
+  const [selectedSize, setSelectedSize] = useState(product.sizes);
+
+  const { title, slug, image, price, description, category } = product.fields;
 
   return (
     <div className="bg-white">
@@ -25,11 +25,11 @@ export function ProductPage() {
           className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
         >
           <ol role="list" className="flex items-center space-x-4">
-            {product.breadcrumbs.map((breadcrumb) => (
-              <li key={breadcrumb.id}>
+            {products.map((product) => (
+              <li key={product.id}>
                 <div className="flex items-center">
                   <a
-                    href={breadcrumb.href}
+                    href={product.href}
                     className="mr-4 text-sm font-medium text-gray-900"
                   >
                     {description}
@@ -65,9 +65,7 @@ export function ProductPage() {
                 <h1 className="text-xl font-medium text-gray-900">
                   {product.name}
                 </h1>
-                <p className="text-xl font-medium text-gray-900">
-                  {price}
-                </p>
+                <p className="text-xl font-medium text-gray-900">{price}</p>
               </div>
               {/* Reviews */}
               <div className="mt-4">

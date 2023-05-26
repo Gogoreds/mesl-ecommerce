@@ -2,6 +2,7 @@ import { createClient } from 'contentful';
 import React from 'react';
 
 import Image from 'next/image';
+import { ProductPage } from '../../components/ProductPage';
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
@@ -78,8 +79,18 @@ const Details = ({ product }) => {
       <main>
         <div className="bg-white">
           <div className="mx-auto max-w-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+          <div>
+                <a
+            href="/products"
+            className="hidden text-sm font-semibold  text-indigo-600 hover:text-indigo-500 mx-10 sm:block"
+          >
+            Back to all products
+            <span aria-hidden="true"> &rarr;</span>
+          </a>
+                </div>
             <div key={product.id} className="group relative">
               <div className="h-96 w-full overflow-hidden rounded-lg sm:aspect-h-3 sm:aspect-w-2 group-hover:opacity-75 sm:h-auto">
+             
                 <Image
                   src={'https:' + image[0].fields.file.url}
                   layout="fill"
@@ -97,6 +108,7 @@ const Details = ({ product }) => {
           </div>
         </div>
       </main>
+      {/* <ProductPage key={product.sys.id} product={product} /> */}
     </div>
   );
 };
