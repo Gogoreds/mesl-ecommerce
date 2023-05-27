@@ -15,10 +15,7 @@ function classNames(...classes) {
 
 export function Navbar() {
   return (
-    <Disclosure
-      as="nav"
-      className="bg-white shadow"
-    >
+    <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -28,15 +25,9 @@ export function Navbar() {
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XMarkIcon
-                      className="block h-6 w-6"
-                      aria-hidden="true"
-                    />
+                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
                   ) : (
-                    <Bars3Icon
-                      className="block h-6 w-6"
-                      aria-hidden="true"
-                    />
+                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
@@ -44,12 +35,12 @@ export function Navbar() {
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="block h-32 w-auto lg:hidden"
-                    src="https://i.ibb.co/L0MCr6v/M-E-S-L-1.png"
+                    src="https://i.ibb.co/0m2wW3T/M-E-S-L.png"
                     alt="MESL"
                   />
                   <img
-                    className="hidden h-32  w-auto lg:block"
-                    src="https://i.ibb.co/L0MCr6v/M-E-S-L-1.png"
+                    className="hidden h-32 w-auto lg:block"
+                    src="https://i.ibb.co/0m2wW3T/M-E-S-L.png"
                     alt="MESL"
                   />
                 </div>
@@ -80,17 +71,14 @@ export function Navbar() {
                   className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   <span className="sr-only">Shopping Cart</span>
-                  <MagnifyingGlassIcon
-                    className="h-6 w-6"
-                    aria-hidden="true"
-                  />
+                  <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
                 <Link href="/checkOut">
-              <a className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-           <span className="sr-only">Shopping Cart</span>
-          <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
-          </a>
-        </Link>
+                  <a className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                    <span className="sr-only">Shopping Cart</span>
+                    <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
