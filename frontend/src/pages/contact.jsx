@@ -1,8 +1,22 @@
-import { useState } from "react";
+import { useState , useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [captcha, setCaptcha]=useState(false)
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_ug6oxqv', 'template_hwvv6id', form.current, 'z6GQb5XMBoxvDu4XS')
+      .then((result) => {
+          console.log(result.text);
+          console.log("Form sent successfully!");
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
 
   return ( 
     <div className="  px-4 4xl:pr-[23%] w-full bg-white ">
@@ -20,8 +34,9 @@ const Contact = () => {
           </h1>
 
           <form
+          ref={form}
+          onSubmit={sendEmail}
             className="mt-6"
-            action="mailto:elizg77@hotmail.com"
             method="get"
             enctype="text/plain"
           >
@@ -53,7 +68,7 @@ const Contact = () => {
               </h3>
               <textarea
                 className="border-2 rounded-md w-full px-2 "
-                name="body"
+                name="message"
                 rows="5"
                 cols="30"
                 placeholder="Hello..."
@@ -72,6 +87,7 @@ const Contact = () => {
             ) : ( */}
               <button
                 type="submit"
+                value="Send"
                 className="bg-[#343B63] text-[#FFFFFF] rounded-md hover:bg-blue-600 font-medium my-14 mx-auto ml-[19%] px-6 py-3  md:ml-[35%] "
                 >Contact us
                 </button>

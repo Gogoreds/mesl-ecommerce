@@ -1,4 +1,20 @@
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+
 export function Newsletter() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_ug6oxqv', 'template_bykoclv', form.current, 'z6GQb5XMBoxvDu4XS')
+      .then((result) => {
+          console.log(result.text);
+          console.log("Email sent successfully!");
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
   return (
     <div className="bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -6,7 +22,7 @@ export function Newsletter() {
           <p className="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">
             Get 15% off your first purchase when you sign up for our newsletter.
           </p>
-          <form className="mx-auto mt-10 flex max-w-md gap-x-4">
+          <form ref={form} onSubmit={sendEmail} className="mx-auto mt-10 flex max-w-md gap-x-4">
             <label
               htmlFor="email-address"
               className="sr-only"
@@ -15,7 +31,7 @@ export function Newsletter() {
             </label>
             <input
               id="email-address"
-              name="email"
+              name="user_email"
               type="email"
               autoComplete="email"
               required
@@ -25,6 +41,7 @@ export function Newsletter() {
             <button
               type="submit"
               className="flex-none rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              value="Send"
             >
               SUBSCRIBE
             </button>
