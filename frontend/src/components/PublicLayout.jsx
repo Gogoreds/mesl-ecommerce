@@ -1,5 +1,5 @@
-import Head from 'next/head';
-import PublicLayout from '../components/layouts/CookieBanner';
+import Head from "next/head";
+import PublicLayout from "../components/layouts/CookieBanner";
 
 const PrivacyPolicy = () => {
   return (
@@ -10,7 +10,7 @@ const PrivacyPolicy = () => {
       </Head>
 
       <PublicLayout>
-        <h1 className="text-3xl font-bold font-open">
+        <h1 className="font-open text-3xl font-bold">
           Website privacy policy page content
         </h1>
       </PublicLayout>

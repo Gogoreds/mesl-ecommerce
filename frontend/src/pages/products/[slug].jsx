@@ -1,8 +1,8 @@
-import { createClient } from 'contentful';
-import React from 'react';
+import { createClient } from "contentful";
+import React from "react";
 
-import Image from 'next/image';
-import { ProductPage } from '../../components/ProductPage';
+import Image from "next/image";
+import { ProductPage } from "../../components/ProductPage";
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
@@ -11,7 +11,7 @@ const client = createClient({
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
-    content_type: 'product',
+    content_type: "product",
   });
   const paths = res.items.map((item) => ({
     params: { slug: item.fields.slug },
@@ -25,8 +25,8 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }) => {
   try {
     const { items } = await client.getEntries({
-      content_type: 'product',
-      'fields.slug': params.slug,
+      content_type: "product",
+      "fields.slug": params.slug,
     });
     return {
       props: {
@@ -51,16 +51,21 @@ const Details = ({ product }) => {
   const renderDescription = () => {
     if (description && description.content && description.content.length > 0) {
       return description.content.map((item, index) => {
-        if (item.nodeType === 'paragraph') {
+        if (item.nodeType === "paragraph") {
           return <p key={index}>{item.content[0].value}</p>;
-        } else if (item.nodeType === 'embedded-asset-block') {
+        } else if (item.nodeType === "embedded-asset-block") {
           const { title, description, file } = item.data.target.fields;
           const imageUrl = file.url;
           return (
             <div key={index}>
               <h4>{title}</h4>
               <p>{description}</p>
-              <Image src={'https:' + imageUrl} alt={title} width={300} height={200} />
+              <Image
+                src={"https:" + imageUrl}
+                alt={title}
+                width={300}
+                height={200}
+              />
             </div>
           );
         } else {
@@ -74,25 +79,22 @@ const Details = ({ product }) => {
 
   return (
     <div className="">
-    
-
       <main>
         <div className="bg-white">
           <div className="mx-auto max-w-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-          <div>
-                <a
-            href="/products"
-            className="hidden text-sm font-semibold  text-indigo-600 hover:text-indigo-500 mx-10 sm:block"
-          >
-            Back to all products
-            <span aria-hidden="true"> &rarr;</span>
-          </a>
-                </div>
+            <div>
+              <a
+                href="/products"
+                className="mx-10 hidden text-sm  font-semibold text-indigo-600 hover:text-indigo-500 sm:block"
+              >
+                Back to all products
+                <span aria-hidden="true"> &rarr;</span>
+              </a>
+            </div>
             <div key={product.id} className="group relative">
               <div className="h-96 w-full overflow-hidden rounded-lg sm:aspect-h-3 sm:aspect-w-2 group-hover:opacity-75 sm:h-auto">
-             
                 <Image
-                  src={'https:' + image[0].fields.file.url}
+                  src={"https:" + image[0].fields.file.url}
                   layout="fill"
                   className="h-full w-full object-cover object-center"
                 />
@@ -101,7 +103,9 @@ const Details = ({ product }) => {
                 <span className="absolute inset-0" />
                 {title}
               </h3>
-              <h4 className="mt-1 text-sm text-gray-500">Category: {category}</h4>
+              <h4 className="mt-1 text-sm text-gray-500">
+                Category: {category}
+              </h4>
               <p className="mt-1 text-sm text-gray-500">{price} Kr</p>
               {renderDescription()}
             </div>
