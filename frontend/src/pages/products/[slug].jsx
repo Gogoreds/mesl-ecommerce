@@ -52,8 +52,8 @@ const Details = ({ product }) => {
         if (item.nodeType === "paragraph") {
           return <p key={index}>{item.content[0].value}</p>;
         } else if (item.nodeType === "embedded-asset-block") {
-          const { title, description, file } = item.data.target.fields;
-          const imageUrl = file.url;
+          // const { title, description, file } = item.data.target.fields;
+          // const imageUrl = file.url;
       
         } else {
           return null;
@@ -68,6 +68,13 @@ const Details = ({ product }) => {
        <div className="bg-white">
     <div className="mx-auto max-w-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
       <main>
+      <a
+          href="/products"
+          className="mx-10 hidden text-sm ml-48 font-semibold text-indigo-600 hover:text-indigo-500 sm:block"
+        >
+          Back to all products
+          <span aria-hidden="true"> &rarr;</span>
+        </a>
               {renderDescription()}
               <ProductCard key={product.sys.id} product={product} />
   

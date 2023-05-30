@@ -63,7 +63,7 @@ const Category = ({ category }) => {
                 <div className="flex items-end p-6">
                   <div>
                     <h3 className="font-semibold text-white">
-                      <a href="#">
+                      <a href="/products">
                         <span className="absolute inset-0" />
                         {title}
                       </a>
@@ -80,7 +80,7 @@ const Category = ({ category }) => {
 
         <div className="mt-6 sm:hidden">
           <a
-            href="#"
+            href="/products"
             className="block text-sm font-semibold text-indigo-600 hover:text-indigo-500"
           >
             Browse all categories
