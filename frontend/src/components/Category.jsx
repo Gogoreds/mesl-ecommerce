@@ -33,7 +33,7 @@ const Category = ({ category }) => {
             Shop by Category
           </h2>
           <a
-            href="#"
+            href="/products"
             className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block"
           >
             Browse all categories
