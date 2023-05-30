@@ -67,7 +67,7 @@ export function Hero() {
                   </p>
                   <div className="mt-10 flex items-center gap-x-6">
                     <a
-                      href="#"
+                      href="/products"
                       className="text-sm font-semibold leading-6 text-gray-900"
                     >
                       Let's Suit Up! <span aria-hidden="true">→</span>
