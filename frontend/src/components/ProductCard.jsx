@@ -1,7 +1,20 @@
 import Image from "next/image";
+import { useState } from "react";
 
 const ProductCard = ({ product }) => {
   const { title, slug, image, price, category } = product.fields;
+  const [isAddingToCart, setIsAddingToCart] = useState(false);
+
+  function handleAddToCart() {
+    setIsAddingToCart(true);
+  
+    // Simulate an asynchronous request to a server
+    setTimeout(() => {
+      setIsAddingToCart(false);
+      alert('Product added to cart!');
+    }, 1000);
+  }
+  
 
   return (
     <div className="bg-white">
@@ -22,13 +35,16 @@ const ProductCard = ({ product }) => {
           </h3>
           <h4 className="mt-1 text-sm text-gray-500">Category: {category}</h4>
           <p className="mt-1 text-sm text-gray-500">{price} Kr</p>
-          <button
+          
+        </div>
+        <button
                   type="submit"
                   className="mt-8 flex w-full items-center justify-center rounded-full border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  onClick={handleAddToCart}
+                  disabled={isAddingToCart}
                 >
-                  Add to cart
+                  {isAddingToCart ? 'Adding to cart...' : 'Add to cart'}
                 </button>
-        </div>
       </div>
     </div>
   );
