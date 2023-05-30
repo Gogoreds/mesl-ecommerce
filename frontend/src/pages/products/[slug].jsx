@@ -1,8 +1,7 @@
 import { createClient } from "contentful";
 import React from "react";
-
 import Image from "next/image";
-import { ProductPage } from "../../components/ProductPage";
+import { ProductCard } from "../../components/ProductCard";
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
@@ -118,7 +117,7 @@ const Details = ({ product }) => {
           </div>
         </div>
       </main>
-      {/* <ProductPage key={product.sys.id} product={product} /> */}
+      <ProductCard key={product.sys.id} product={product} />
     </div>
   );
 };
