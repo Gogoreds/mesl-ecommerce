@@ -1,13 +1,6 @@
 import { createClient } from "contentful";
 import React from "react";
-<<<<<<< HEAD
 import ProductCard  from "../../components/ProductCard";
-=======
-import { useState } from "react";
-
-import Image from "next/image";
-import { ProductPage } from "../../components/ProductPage";
->>>>>>> main
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
