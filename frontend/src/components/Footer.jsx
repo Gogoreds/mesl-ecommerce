@@ -11,7 +11,7 @@ const navigation = {
   social: [
     {
       name: "Facebook",
-      href: "#",
+      href: "https://www.facebook.com/",
       icon: (props) => (
         <svg
           fill="currentColor"
@@ -28,7 +28,7 @@ const navigation = {
     },
     {
       name: "Instagram",
-      href: "#",
+      href: "https://www.instagram.com/",
       icon: (props) => (
         <svg
           fill="currentColor"
@@ -45,7 +45,7 @@ const navigation = {
     },
     {
       name: "Twitter",
-      href: "#",
+      href: "https://www.twitter.com/",
       icon: (props) => (
         <svg
           fill="currentColor"
@@ -58,7 +58,7 @@ const navigation = {
     },
     {
       name: "GitHub",
-      href: "#",
+      href: "https://www.github.com/",
       icon: (props) => (
         <svg
           fill="currentColor"
@@ -75,7 +75,7 @@ const navigation = {
     },
     {
       name: "YouTube",
-      href: "#",
+      href: "https://www.youtube.com/",
       icon: (props) => (
         <svg
           fill="currentColor"
