@@ -25,20 +25,11 @@ const products = [
 export function CheckOut() {
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-white">
-        <body class="h-full">
-        ```
-      */}
       <main className="lg:flex lg:min-h-full lg:flex-row-reverse lg:overflow-hidden">
         <div className="px-4 py-6 sm:px-6 lg:hidden">
           <div className="mx-auto flex max-w-lg">
             <a href="#">
-              <span className="sr-only">Your Company</span>
-             
+              <span className="sr-only">MESL</span>
             </a>
           </div>
         </div>
@@ -50,7 +41,10 @@ export function CheckOut() {
           aria-labelledby="order-heading"
           className="bg-gray-50 px-4 py-6 sm:px-6 lg:hidden"
         >
-          <Disclosure as="div" className="mx-auto max-w-lg">
+          <Disclosure
+            as="div"
+            className="mx-auto max-w-lg"
+          >
             {({ open }) => (
               <>
                 <div className="flex items-center justify-between">
@@ -75,7 +69,10 @@ export function CheckOut() {
                     className="divide-y divide-gray-200 border-b border-gray-200"
                   >
                     {products.map((product) => (
-                      <li key={product.id} className="flex space-x-6 py-6">
+                      <li
+                        key={product.id}
+                        className="flex space-x-6 py-6"
+                      >
                         <img
                           src={product.imageSrc}
                           alt={product.imageAlt}
@@ -171,7 +168,10 @@ export function CheckOut() {
           aria-labelledby="summary-heading"
           className="hidden w-full max-w-md flex-col bg-gray-50 lg:flex"
         >
-          <h2 id="summary-heading" className="sr-only">
+          <h2
+            id="summary-heading"
+            className="sr-only"
+          >
             Order summary
           </h2>
 
@@ -180,7 +180,10 @@ export function CheckOut() {
             className="flex-auto divide-y divide-gray-200 overflow-y-auto px-6"
           >
             {products.map((product) => (
-              <li key={product.id} className="flex space-x-6 py-6">
+              <li
+                key={product.id}
+                className="flex space-x-6 py-6"
+              >
                 <img
                   src={product.imageSrc}
                   alt={product.imageAlt}
@@ -277,7 +280,6 @@ export function CheckOut() {
             <div className="hidden pb-16 pt-10 lg:flex">
               <a href="#">
                 <span className="sr-only">Your Company</span>
-              
               </a>
             </div>
 
