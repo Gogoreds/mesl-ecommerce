@@ -40,6 +40,7 @@ const ProductList = ({ products }) => {
           Our Shop
         </h2>
         <input
+        className="rounded-md"
           type="text"
           placeholder="Search product..."
           onChange={(event) => {
