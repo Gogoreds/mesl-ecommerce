@@ -39,14 +39,14 @@ const ProductCard = ({ product }) => {
           <h4 className="mt-1 text-sm text-gray-500">Category: {category}</h4>
           <p className="mt-1 text-sm text-gray-500">{price} Kr</p>
           <p onClick={toggleLike}>
-            {like ? <FaHeart className='absolute top-4 left-4 text-gray-300'/> : <FaRegHeart className='absolute top-4 left-4 text-gray-300'/>}
+            {like ? <FaHeart className='absolute top-4 left-4 text-red-600'/> : <FaRegHeart className='absolute top-4 left-4 text-gray-300'/>}
           </p>
-          <button
+          {/* <button
             type="submit"
             className="mt-8 flex w-full items-center justify-center rounded-full border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           >
             Add to cart
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
