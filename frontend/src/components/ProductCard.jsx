@@ -1,20 +1,23 @@
 import Image from "next/image";
-import { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
 
 const ProductCard = ({ product }) => {
   const { title, slug, image, price, category } = product.fields;
-  const [isAddingToCart, setIsAddingToCart] = useState(false);
+  const [like, setLike] = useState(false);
 
-  function handleAddToCart() {
-    setIsAddingToCart(true);
-  
-    // Simulate an asynchronous request to a server
-    setTimeout(() => {
-      setIsAddingToCart(false);
-      alert('Product added to cart!');
-    }, 1000);
-  }
-  
+  const toggleLike = () => {
+    const updatedLike = !like;
+    setLike(updatedLike);
+    localStorage.setItem(`liked_${slug}`, updatedLike.toString());
+  };
+
+  useEffect(() => {
+    const likedState = localStorage.getItem(`liked_${slug}`);
+    if (likedState) {
+      setLike(likedState === 'true');
+    }
+  }, [slug]);
 
   return (
     <div className="bg-white">
@@ -35,9 +38,6 @@ const ProductCard = ({ product }) => {
           </h3>
           <h4 className="mt-1 text-sm text-gray-500">Category: {category}</h4>
           <p className="mt-1 text-sm text-gray-500">{price} Kr</p>
-<<<<<<< HEAD
-          
-=======
           <p onClick={toggleLike}>
             {like ? <FaHeart className='absolute top-4 left-4 text-red-600'/> : <FaRegHeart className='absolute top-4 left-4 text-gray-300'/>}
           </p>
@@ -47,19 +47,10 @@ const ProductCard = ({ product }) => {
           >
             Add to cart
           </button> */}
->>>>>>> Liz
         </div>
-        <button
-                  type="submit"
-                  className="mt-8 flex w-full items-center justify-center rounded-full border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                  onClick={handleAddToCart}
-                  disabled={isAddingToCart}
-                >
-                  {isAddingToCart ? 'Adding to cart...' : 'Add to cart'}
-                </button>
       </div>
     </div>
   );
 };
-export default ProductCard;
 
+export default ProductCard;
