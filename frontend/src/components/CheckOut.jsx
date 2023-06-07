@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { Disclosure } from "@headlessui/react";
 import { LockClosedIcon } from "@heroicons/react/20/solid";
-import { Elements, PaymentElement } from "@stripe/react-stripe-js";
+import { Elements, CardElement,useStripe, useElements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
-const stripePromise = loadStripe("pk_test_51NBrxZExwc4I2AGOECdsJI1NQzZ3lgzwjFpW57EFWFT5ngnu30J0kQoZDWj6fkEydSzVtFdg9TrdlCmXDlQrV5jA00hskiwfLZ");
+const stripePromise = loadStripe(
+  "pk_test_51NBrxZExwc4I2AGOECdsJI1NQzZ3lgzwjFpW57EFWFT5ngnu30J0kQoZDWj6fkEydSzVtFdg9TrdlCmXDlQrV5jA00hskiwfLZ"
+);
 const subtotal = "$210.00";
 const discount = { code: "CHEAPSKATE", amount: "$24.00" };
 const taxes = "$23.68";
@@ -26,34 +29,51 @@ const products = [
 ];
 
 export function CheckOut() {
+  const [processing, setProcessing] = useState(false);
+  const elements = useElements();
+  const stripe = useStripe();
+  const stripePromise = loadStripe(
+    "pk_test_51NBrxZExwc4I2AGOECdsJI1NQzZ3lgzwjFpW57EFWFT5ngnu30J0kQoZDWj6fkEydSzVtFdg9TrdlCmXDlQrV5jA00hskiwfLZ"
+  );
+
   const options = {
     // passing the client secret obtained from the server
-    clientSecret: '{{process.env.STRIPE_SECRET}}',
+    clientSecret: process.env.NEXT_PUBLIC_STRIPE_SECRET,
   };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setProcessing(true);
 
-    const {stripe, elements} = this.props;
+    const { error } = await handlePayment();
 
-    if (!stripe || !elements) {
-      return;
+    if (error) {
+      setPaymentError(error.message);
+    } else {
+      // Handle successful payment (e.g., show a success message, navigate to a different page, etc.)
     }
 
-    const result = await stripe.confirmPayment({
-      //`Elements` instance that was used to create the Payment Element
-      elements,
-      confirmParams: {
-        return_url: "https://example.com/order/123/complete",
+    setProcessing(false);
+  };
+
+  const handlePayment = async () => {
+    const cardElement = elements.getElement(CardElement);
+    const { error, paymentMethod } = await stripePromise.createPaymentMethod({
+      type: "card",
+      card: cardElement,
+      billing_details: {
+        // Add the customer's billing details here
       },
     });
 
-    if (result.error) {
-      console.log(result.error.message);
-    } else {
-      // Your customer will be redirected to your `return_url`. For some payment
-      // methods like iDEAL, your customer will be redirected to an intermediate
-      // site first to authorize the payment, then redirected to the `return_url`.
+    if (error) {
+      return { error };
     }
+
+    // Send the paymentMethod.id to your server to charge the customer or save the payment method for future use
+    // Example: await createCharge(paymentMethod.id);
+
+    return { paymentMethod };
   };
 
   return (
@@ -351,6 +371,12 @@ export function CheckOut() {
                         className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
+                    <div className="mt-1">
+                      <CardElement
+                        id="card-element"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                      />
+                    </div>
                   </div>
 
                   <div className="col-span-full">
@@ -515,7 +541,6 @@ export function CheckOut() {
                     Billing address is the same as shipping address
                   </label>
                 </div>
-                <PaymentElement />
                 <button
                   type="submit"
                   className="mt-6 w-full rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
