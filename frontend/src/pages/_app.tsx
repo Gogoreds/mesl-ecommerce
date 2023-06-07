@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { AppProps } from "next/app";
 import "../styles/tailwind.scss";
-import Layout from '../components/Layout'
+import Layout from "../components/Layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -11,14 +11,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   };
 
   return (
-    <>
     <Layout>
-    <Component
-      {...pageProps}
-      onRedirectCallback={onRedirectCallback}
-    />
+      <Component {...pageProps} onRedirectCallback={onRedirectCallback} />
     </Layout>
-    </>
   );
 }
 

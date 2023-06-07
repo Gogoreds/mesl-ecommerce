@@ -5,7 +5,7 @@ import ProductTrio from "../components/ProductTrio";
 import Carousel from "../components/Carousel";
 import { Blog } from "../components/Blog";
 import { Newsletter } from "../components/Newsletter";
-import Category from '../components/Category'
+import Category from "../components/Category";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -35,19 +35,17 @@ export default function Home() {
     };
 
     fetchProducts();
-    fetchCategory()
+    fetchCategory();
   }, []);
 
   return (
-    <div className="">
-      <main>
-        <Hero />
-        <Carousel />
-        <ProductTrio products={products} />
-        <Category  category={categorys}  />
-        <Blog />
-        <Newsletter />
-      </main>
-    </div>
+    <>
+      <Hero />
+      <Carousel />
+      <ProductTrio products={products} />
+      <Category category={categorys} />
+      <Blog />
+      <Newsletter />
+    </>
   );
 }

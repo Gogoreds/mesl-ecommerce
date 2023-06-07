@@ -1,26 +1,36 @@
 import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
 import Head from "next/head";
-import CookieBanner from './CookieBanner';
+import CookieBanner from "./CookieBanner";
 
-const Layout = ({children}) => {
-  return ( 
-  <div>
-       <Head>     
+const Layout = ({ children }) => {
+  return (
+    <>
+      <Head>
         <title>MESL - Only Clothing Store You'll Ever Need!</title>
         <meta
           name="description"
           content="We strive to provide the best quality clothing to our clients."
         />
-         <script src="https://www.google.com/recaptcha/api.js" async defer></script> with <script src="https://www.recaptcha.net/recaptcha/api.js" async defer></script>
+        <script
+          src="https://www.google.com/recaptcha/api.js"
+          async
+          defer
+        ></script>{" "}
+        with{" "}
+        <script
+          src="https://www.recaptcha.net/recaptcha/api.js"
+          async
+          defer
+        ></script>
       </Head>
-    <Navbar/>
-  
-    {children}
-    <CookieBanner />
-    <Footer />
-  </div>
-   );
-}
- 
+      <Navbar />
+
+      {children}
+      <CookieBanner />
+      <Footer />
+    </>
+  );
+};
+
 export default Layout;
